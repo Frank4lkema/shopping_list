@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.update!(product_params)
   end
 
   def destroy
