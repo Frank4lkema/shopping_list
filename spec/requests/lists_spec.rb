@@ -23,12 +23,11 @@ RSpec.describe 'Lists', type: :request do
 
   # Test suite for GET /lists/:id
   describe 'GET /lists/:id' do
-    before { get "/lists/#{list_id}" }
-
     context 'when the record exists' do
+      before { get "/lists/#{list_id}" }
       it 'returns the list' do
-        expect(assigns(:list)).not_to be_empty
-        expect(assigns(:list)).to eq(list_id)
+        expect(assigns(:list)).not_to be_nil
+        expect(assigns(:list).id).to eq(list_id)
       end
 
       it 'returns status code 200' do
@@ -39,12 +38,8 @@ RSpec.describe 'Lists', type: :request do
     context 'when the record does not exist' do
       let(:list_id) { 100 }
 
-      it 'returns status code 404' do
-        expect(response).to have_http_status(404)
-      end
-
-      it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find List/)
+      it ' to raise not found error' do
+        expect { get "/lists/#{list_id}" }.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
   end
@@ -57,33 +52,13 @@ RSpec.describe 'Lists', type: :request do
       it 'expected to create a new list-list' do
         expect(assigns(:list).date).to eq('2021-12-06'.to_date)
       end
-
-      it 'expect to have code 201' do
-        expect(response).to have_http_status(201)
-      end
     end
 
     context 'when request has invalid params' do
       let(:invalid_params) { { date: nil } }
-      before { post '/lists', params: invalid_params }
-
-      it 'returns status code 422' do
-        expect(response).to have_http_status(422)
-      end
-
       it 'returns a validation failure message' do
-        expect(response.body)
-          .to match(/Validation failed: Date can't be blank/)
+        expect { post '/lists', params: invalid_params }.to raise_exception(ActiveRecord::RecordInvalid)
       end
-    end
-  end
-
-  # Test suite for DELETE /todos/:id
-  describe 'DELETE /lists/:id' do
-    before { delete "/lists/#{list_id}" }
-
-    it 'returns status code 204' do
-      expect(response).to have_http_status(204)
     end
   end
 end
