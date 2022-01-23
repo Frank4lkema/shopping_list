@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Lists API', type: :request do
+RSpec.describe 'Lists', type: :request do
   let!(:lists) { create_list(:list, 10) }
   let(:list_id) { lists.first.id }
 
@@ -11,8 +11,9 @@ RSpec.describe 'Lists API', type: :request do
     before { get '/lists' }
 
     it 'returns lists' do
-      expect(json).not_to be_empty
-      expect(json.size).to eq(10)
+      get lists_path
+      expect(response).to be_successful
+      expect(assigns(:lists)).to eq(List.all)
     end
 
     it 'returns status code 200' do
@@ -26,8 +27,8 @@ RSpec.describe 'Lists API', type: :request do
 
     context 'when the record exists' do
       it 'returns the list' do
-        expect(json).not_to be_empty
-        expect(json['id']).to eq(list_id)
+        expect(assigns(:list)).not_to be_empty
+        expect(assigns(:list)).to eq(list_id)
       end
 
       it 'returns status code 200' do
@@ -54,7 +55,7 @@ RSpec.describe 'Lists API', type: :request do
     context 'when request has valid params' do
       before { post '/lists', params: valid_params }
       it 'expected to create a new list-list' do
-        expect(json['date']).to eq('2021-12-06')
+        expect(assigns(:list).date).to eq('2021-12-06'.to_date)
       end
 
       it 'expect to have code 201' do
