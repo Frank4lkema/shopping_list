@@ -12,25 +12,7 @@ RSpec.describe 'List products API', type: :request do
     context 'when the list exists' do
       before { get "/lists/#{list.id}/products" }
       it 'returns the list of products' do
-        expect(json).not_to be_empty
-        expect(json.size).to eq(1)
-      end
-
-      it 'returns status code 200' do
-        expect(response).to have_http_status(200)
-      end
-    end
-
-    context 'when the record does not exist' do
-      let(:list_id) { 100 }
-      before { get "/lists/#{list_id}/products" }
-
-      it 'returns status code 404' do
-        expect(response).to have_http_status(404)
-      end
-
-      it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find List/)
+        expect(assigns(:list_products).size).to eq(1)
       end
     end
   end
@@ -41,25 +23,14 @@ RSpec.describe 'List products API', type: :request do
       let(:valid_params) { { amount: 1, product_id: new_product.id } }
       before { post "/lists/#{list.id}/products", params: valid_params }
       it 'expected to create a new list-product' do
-        expect(json['amount']).to eq(1)
-      end
-
-      it 'expect to have code 201' do
-        expect(response).to have_http_status(201)
+        expect(assigns(:list_product).amount).to eq(1)
       end
     end
 
     context 'when request has invalid params' do
       let(:invalid_params) { { amount: 0, product_id: new_product.id } }
-      before { post "/lists/#{list.id}/products", params: invalid_params }
-
-      it 'returns status code 422' do
-        expect(response).to have_http_status(422)
-      end
-
       it 'returns a validation failure message' do
-        expect(response.body)
-          .to match(/Validation failed: Amount must be greater than 0/)
+        expect { post "/lists/#{list.id}/products" }.to raise_exception(ActiveRecord::RecordInvalid)
       end
     end
   end
