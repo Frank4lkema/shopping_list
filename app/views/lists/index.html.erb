@@ -1,8 +1,14 @@
 <div class="main-background-color">
-  <% @lists.each_with_index do |list, index| %>
-    <div class="list-card <%= "selected" if index == 0  %>">
-      <%= link_to "Boodschappenlijst #{list.date}", list_path(list) %>
-      <p>
-    </div>
-  <% end %>
+  <div class="cards">
+    <% @lists.each_with_index do |list, index| %>
+      <div class="card card-1">
+        <div class="card__icon"><i class="fas fa-bolt"></i></div>
+        <p class="card__exit"><i class="fas fa-times"></i></p>
+        <h2 class="card__title"><%= pretty_date(list.date) %></h2>
+        <p class="card__apply">
+          <%= link_to "Boodschappenlijst", list_path(list), class: "card__link" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>
