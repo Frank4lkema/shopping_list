@@ -1,5 +1,8 @@
 <div class="main-background-color">
-<h1>
-  Hoi
-</h1>
+  <% @lists.each_with_index do |list, index| %>
+    <div class="list-card <%= "selected" if index == 0  %>">
+      <%= link_to "Boodschappenlijst #{list.date}", list_path(list) %>
+      <p>
+    </div>
+  <% end %>
 </div>
