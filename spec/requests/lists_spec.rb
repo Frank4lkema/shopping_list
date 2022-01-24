@@ -13,7 +13,7 @@ RSpec.describe 'Lists', type: :request do
     it 'returns lists' do
       get lists_path
       expect(response).to be_successful
-      expect(assigns(:lists)).to eq(List.all)
+      expect(assigns(:lists)).to include(*List.all.order(:date))
     end
 
     it 'returns status code 200' do

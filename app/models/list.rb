@@ -6,4 +6,9 @@ class List < ApplicationRecord
 
   # Validations
   validates :date, presence: true
+
+  # SCOPES
+  scope :future_lists, lambda {
+    where('date >= ? ', Date.today)
+  }
 end

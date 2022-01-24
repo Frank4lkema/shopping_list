@@ -3,7 +3,7 @@
 # lists controller
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @lists = List.all.future_lists.order(:date)
   end
 
   def create
