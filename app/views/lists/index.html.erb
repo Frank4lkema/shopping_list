@@ -1,11 +1,18 @@
-<nav class="navbar navbar-light bg-light">
-  <form class="container-fluid">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Date" aria-label="Date" aria-describedby="basic-addon1">
-    </div>
-  </form>
-</nav>
-<div class="main-background-color">
+<div class="display-flex">
+  <nav class="navbar navbar-light bg-light">
+    <form class="container-fluid">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Date" aria-label="Date" aria-describedby="basic-addon1">
+      </div>
+    </form>
+  </nav>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  <i class="bi bi-bag-plus icon-size"></i>
+</div>
+
+<div class="">
   <div class="cards">
     <% @lists.each_with_index do |list, index| %>
       <%= link_to list_path(list), class: "card__link" do %>
