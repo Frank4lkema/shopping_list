@@ -22,6 +22,20 @@ body {
   transition: all 0.2s;
 }
 
+.card-span{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  z-index: 1;
+
+  /* fixes overlap error in IE7/8,
+     make sure you have an empty gif */
+  background-image: url('empty.gif');
+}
+
 .card:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.01);
@@ -35,20 +49,20 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.card__link::after {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  content: "";
-  width: 0%;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0.6);
-  transition: all 0.5s;
-}
+//.card__link::after {
+//  position: absolute;
+//  top: 8px;
+//  left: 2px;
+//  content: "";
+//  width: 0%;
+//  height: 3px;
+//  background-color: rgba(255, 255, 255, 0.6);
+//  transition: all 0.5s;
+//}
 
-.card__link:hover::after {
-  width: 100%;
-}
+//.card__link:hover::after {
+//  width: 98%;
+//}
 
 .card__exit {
   grid-row: 1/2;
@@ -72,26 +86,9 @@ body {
 }
 
 /* CARD BACKGROUNDS */
-
-.card-4 {
-  background: radial-gradient(#1fe4f5, #3fbafe);
-}
-
-.card-2 {
-  background: radial-gradient(#fbc1cc, #fa99b2);
-}
-
-.card-3 {
-  background: radial-gradient(#76b2fe, #b69efe);
-}
-
 .card-1 {
   text-align: center;
   background: radial-gradient(#60efbc, #58d5c9);
-}
-
-.card-5 {
-  background: radial-gradient(#f588d8, #c0a3e5);
 }
 
 /* RESPONSIVE */

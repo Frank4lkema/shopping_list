@@ -2,15 +2,3 @@
   background-color: #eeeee4;
   height: 100%;
 }
-
-.list-card{
-  height: 30px;
-  text-align: center;
-  /* border: 2px solid black; */
-  border-radius: 6px;
-  margin: 10px;
-}
-
-.selected{
-  background: white;
-}
