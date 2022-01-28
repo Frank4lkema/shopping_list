@@ -9,7 +9,7 @@
   <button
     type="button"
     class="btn btn-outline-dark icon-size" id="myBtn">
-      <i class="bi bi-bag-plus"></i>
+    <i class="bi bi-bag-plus"></i>
   </button>
 </div>
 
@@ -34,8 +34,10 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :date , as: :date%>
+      <%= f.button :submit %>
+    <% end %>
   </div>
 
 </div>

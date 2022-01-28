@@ -20,7 +20,7 @@ RSpec.describe 'Products API', type: :request do
     context 'when request has invalid params' do
       let(:invalid_params) { { name: nil } }
       it 'returns a validation failure message' do
-        expect { post '/lists', params: invalid_params }.to raise_exception(ActiveRecord::RecordInvalid)
+        expect { post '/products', params: invalid_params }.to raise_exception(ActiveRecord::RecordInvalid)
       end
     end
   end

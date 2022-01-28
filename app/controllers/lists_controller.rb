@@ -3,6 +3,7 @@
 # lists controller
 class ListsController < ApplicationController
   def index
+    @list = List.new
     @lists = List.all.future_lists.order(:date)
   end
 
@@ -21,6 +22,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.permit(:date)
+    params.require(:list).permit(:date)
   end
 end

@@ -45,7 +45,7 @@ RSpec.describe 'Lists', type: :request do
   end
 
   describe 'POST /lists' do
-    let(:valid_params) { { date: '06-12-2021'.to_date } }
+    let(:valid_params) { { list: { date: '06-12-2021'.to_date } } }
 
     context 'when request has valid params' do
       before { post '/lists', params: valid_params }
@@ -55,7 +55,7 @@ RSpec.describe 'Lists', type: :request do
     end
 
     context 'when request has invalid params' do
-      let(:invalid_params) { { date: nil } }
+      let(:invalid_params) { { list: { date: nil } } }
       it 'returns a validation failure message' do
         expect { post '/lists', params: invalid_params }.to raise_exception(ActiveRecord::RecordInvalid)
       end
