@@ -12,7 +12,7 @@ export default class extends Controller {
     const btn = document.getElementById("myBtn");
 
     // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    const span = document.getElementsByClassName("close-modal")[0];
 
     // When the user clicks on the button, open the modal
     btn.onclick = function() {

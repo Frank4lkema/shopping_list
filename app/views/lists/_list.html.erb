@@ -1,0 +1,12 @@
+<div id="<%= dom_id(list) %>">
+  <%= link_to list_path(list), class: "card__link" do %>
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title"><%= pretty_date(list.date) %></h2>
+      <p class="card__apply">
+        <span>Boodschappenlijst</span>
+      </p>
+    </div>
+  <% end %>
+</div>
