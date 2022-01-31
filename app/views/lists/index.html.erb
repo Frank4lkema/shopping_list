@@ -1,11 +1,13 @@
-<div class="display-flex" data-controller="lists">
-  <%= render 'lists/ui_components/nav_bar'  %>
-</div>
+<div data-controller="lists">
+  <div class="display-flex">
+    <%= render 'lists/ui_components/nav_bar'  %>
+  </div>
 
-<div id=cards>
-  <%= render @lists %>
-</div>
+  <div id=cards>
+    <%= render @lists %>
+  </div>
 
-<div id="myModal" class="modal">
-  <%= render 'lists/forms/new_list_form' %>
+  <div id="myModal" class="modal">
+    <%= render 'lists/forms/new_list_form' %>
+  </div>
 </div>
