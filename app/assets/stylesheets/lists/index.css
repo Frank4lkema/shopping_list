@@ -16,3 +16,8 @@
     font-size: 20px;
     color: black;
 }
+.header{
+    text-align: center;
+    height: 50px;
+    padding-top: 10px;
+}
