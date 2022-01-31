@@ -1,0 +1,46 @@
+.main-background-color {
+  background-color: white;
+  /*height: 100%;*/
+}
+
+.navbar {
+  width: 90%;
+}
+
+.display-flex {
+  position: relative;
+}
+
+.icon-size {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  font-size: 20px;
+  color: black;
+}
+
+.header-title{
+  text-align: center;
+  height: 50px;
+  padding-top: 10px;
+  color: black;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    background-image: url("<%= asset_path('header_picture.jpeg') %>");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+  }
+}
