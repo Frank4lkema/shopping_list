@@ -1,5 +1,5 @@
 <div class="header">
-  <h2 class="header-title">Franks Shopping list !</h2>
+  <h2 class="header-title"><%= @list.id ? "#{@list.date}" : "Franks Shopping list !" %></h2>
   <button
     type="button"
     class="btn btn-outline-dark icon-size" id="myBtn"

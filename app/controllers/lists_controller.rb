@@ -13,6 +13,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @list_products = @list.list_products.includes(:product)
   end
 
   def destroy

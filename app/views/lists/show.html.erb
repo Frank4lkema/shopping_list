@@ -1,1 +1,7 @@
-<h1><%= @list.date %></h1>
+<div class="display-flex">
+  <%= render 'lists/ui_components/nav_bar' %>
+</div>
+
+<div id=cards>
+  <%= render @list_products %>
+</div>
