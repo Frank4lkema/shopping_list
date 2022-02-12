@@ -16,14 +16,14 @@
   top: 2px;
   right: 5px;
   font-size: 20px;
-  color: black;
+  color: white;
 }
 
 .header-title{
   text-align: center;
   height: 50px;
   padding-top: 10px;
-  color: black;
+  color: white;
 }
 
 .header {
@@ -31,16 +31,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e8ddb5;
 
-  &::before {
-    content: "";
-    background-image: url("<%= asset_path('header_picture.jpeg') %>");
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.75;
-  }
+//  &::before {
+//    content: "";
+//    background-image: url("<%#= asset_path('header_picture.jpeg') %>");
+//    background-size: cover;
+//    position: absolute;
+//    top: 0px;
+//    right: 0px;
+//    bottom: 0px;
+//    left: 0px;
+//    opacity: 0.75;
+//  }
 }
