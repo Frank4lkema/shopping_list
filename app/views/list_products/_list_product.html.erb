@@ -1,3 +1,6 @@
 <div id="<%= dom_id(list_product) %>">
-  <p><%= list_product.product.name %></p>
+  <li>
+    <input type="checkbox" id="<%= list_product.id %>" name="cb<%= list_product.id %>" <%= list_product.collected ? "checked" : "" %>>
+    <label for="cb<%= list_product.id %>"><%= list_product.product.name %></label>
+  </li>
 </div>
