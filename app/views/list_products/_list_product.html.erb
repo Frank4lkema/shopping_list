@@ -1,6 +1,6 @@
-<div id="<%= dom_id(list_product) %>">
+<div id="<%= dom_id(list_product) %> " >
   <li>
-    <input type="checkbox" id="<%= list_product.id %>" name="cb<%= list_product.id %>" <%= list_product.collected ? "checked" : "" %>>
+    <input type="checkbox" id="<%= list_product.id %>" name="cb<%= list_product.id %>" <%= list_product.collected ? "checked" : "" %>  data-products-target="product" class="product">
     <label for="cb<%= list_product.id %>"><%= list_product.product.name %></label>
   </li>
 </div>
